@@ -1,0 +1,19 @@
+{
+  "name": "{{projectId}}",
+  "description": "{{projectDescription}}",
+  "version": "1.3.0",
+  "author": "Mark Skelton",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mskelton/{{projectId}}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mskelton/{{projectId}}/issues"
+  },
+  "homepage": "https://github.com/mskelton/{{projectId}}#readme",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "postversion": "git push && git push --tags"
+  }
+}

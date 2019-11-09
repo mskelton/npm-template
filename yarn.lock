@@ -1867,6 +1867,13 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
+generator-license@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/generator-license/-/generator-license-5.4.0.tgz#9d662e98d2bd534036079461521036977becb7a0"
+  integrity sha512-Nd1V/Pt8kL3DnAiw370F2AWaibSz4+TnR/2j3jAFpdKEsvOeZSkFtIakWSMcGq3+iMAfyHRI7tTFP8QSvedHVQ==
+  dependencies:
+    yeoman-generator "^2.0.1"
+
 get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
