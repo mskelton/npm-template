@@ -69,7 +69,7 @@ module.exports = class extends Generator {
     const copyOptions = { globOptions: { dot: true } }
 
     this.fs.copyTpl(
-      this.templatePath('default/**'),
+      this.templatePath('base'),
       this.destinationPath(this.answers.projectId),
       context,
       undefined,
@@ -78,7 +78,7 @@ module.exports = class extends Generator {
 
     if (this.answers.vscodeExtension) {
       this.fs.copyTpl(
-        this.templatePath('vscode/**'),
+        this.templatePath('vscode'),
         this.destinationPath(this.answers.projectId),
         context,
         undefined,
