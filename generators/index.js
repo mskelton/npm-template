@@ -1,37 +1,69 @@
+const path = require('path')
 const Generator = require('yeoman-generator')
 const yosay = require('yosay')
 
 module.exports = class extends Generator {
-  prompting() {
+  async prompting() {
     // Have Yeoman greet the user
     this.log(yosay('Welcome to the mskelton generator!'))
 
-    const prompts = [
+    this.answers = await this.prompt([
+      {
+        message: 'What is the project id?',
+        name: 'projectId',
+        type: 'input',
+      },
+      {
+        message: 'What is the project human readable name?',
+        name: 'projectName',
+        type: 'input',
+      },
+      {
+        message: 'What is a short description of the project?',
+        name: 'projectDescription',
+        type: 'input',
+      },
       {
         default: false,
         message: 'Is this project a VS Code extension?',
         name: 'vscodeExtension',
         type: 'confirm',
       },
-    ]
+    ])
 
-    return this.prompt(prompts)
+    this.destinationDir = path.join(process.cwd(), this.answers.projectId)
   }
 
   writing() {
-    console.log(this.props)
-    // this.fs.copy(
-    //   this.templatePath('dummyfile.txt'),
-    //   this.destinationPath('dummyfile.txt')
-    // )
+    const context = {
+      projectDescription: this.answers.projectDescription,
+      projectId: this.answers.projectId,
+      projectName: this.answers.projectName,
+      year: new Date().getFullYear()
+    }
 
-    this.composeWith(require.resolve('generator-license'), {
-      license: 'MIT',
-      name: 'Mark Skelton',
-    })
+    const copyOptions = { globOptions: { dot: true } }
+
+    this.fs.copyTpl(
+      this.templatePath('default/**'),
+      this.destinationPath(this.answers.projectId),
+      context,
+      undefined,
+      copyOptions
+    )
+
+    if (this.answers.vscodeExtension) {
+      this.fs.copyTpl(
+        this.templatePath('vscode/**'),
+        this.destinationPath(this.answers.projectId),
+        context,
+        undefined,
+        copyOptions
+      )
+    }
   }
 
   install() {
-    this.installDependencies()
+    this.yarnInstall(undefined, undefined, { cwd: this.destinationDir })
   }
 }

@@ -40,7 +40,7 @@ jobs:
       - name: Package extension
         run: |
           mkdir dist
-          yarn vsce package -o dist/{{projectId}}-${GITHUB_REF/refs\/tags\//}.vsix
+          yarn vsce package -o dist/<%= projectId %>-${GITHUB_REF/refs\/tags\//}.vsix
       - name: Upload extension to release
         uses: Roang-zero1/github-upload-release-artifacts-action@master
         with:
