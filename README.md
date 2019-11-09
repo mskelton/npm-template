@@ -8,16 +8,21 @@
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-mskelton using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-mskelton.
 
-```bash
+```sh
+# Yarn
+yarn global add yo
+yarn global add generator-mskelton
+
+# npm
 npm install -g yo
 npm install -g generator-mskelton
 ```
 
-Then generate your new project:
+Then generate your new project.
 
-```bash
+```sh
 yo mskelton
 ```
 
