@@ -11,7 +11,7 @@
   },
   "homepage": "https://github.com/mskelton/generator-mskelton#readme",
   "license": "MIT",
-  "main": "generators/index.js",
+  "main": "generators/app.js",
   "keywords": [
     "yeoman-generator"
   ],
