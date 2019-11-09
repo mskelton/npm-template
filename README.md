@@ -4,6 +4,8 @@
 
 > Yoeman generator for my projects.
 
+![Screenshot](screenshots/default.png)
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-mskelton.
@@ -18,10 +20,26 @@ npm install -g yo
 npm install -g generator-mskelton
 ```
 
-Then generate your new project.
+## Usage
 
 ```sh
 yo mskelton
+```
+
+There are multiple command-line options available:
+
+```sh
+Usage:
+  yo mskelton [options]
+
+Options:
+  -h,   --help          # Print the generator's options and usage
+        --skip-cache    # Do not remember prompt answers             Default: false
+        --skip-install  # Do not automatically install dependencies  Default: false
+        --project-id    # Project Id
+        --project-name  # Human-readable name for the project
+        --project-desc  # Short description of the project
+        --vsce          # Add VS Code extension files
 ```
 
 ## Contributors ✨

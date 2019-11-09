@@ -3,6 +3,30 @@ const Generator = require('yeoman-generator')
 const yosay = require('yosay')
 
 module.exports = class extends Generator {
+  constructor(...args) {
+    super(...args)
+
+    this.option('project-id', {
+      description: 'Project Id',
+      type: String,
+    })
+
+    this.option('project-name', {
+      description: 'Human-readable name for the project',
+      type: String,
+    })
+
+    this.option('project-desc', {
+      description: 'Short description of the project',
+      type: String,
+    })
+
+    this.option('vsce', {
+      description: 'Add VS Code extension files',
+      type: Boolean,
+    })
+  }
+
   async prompting() {
     // Have Yeoman greet the user
     this.log(yosay('Welcome to the mskelton generator!'))
@@ -14,7 +38,7 @@ module.exports = class extends Generator {
         type: 'input',
       },
       {
-        message: 'What is the project human readable name?',
+        message: 'What is the project human-readable name?',
         name: 'projectName',
         type: 'input',
       },
@@ -39,7 +63,7 @@ module.exports = class extends Generator {
       projectDescription: this.answers.projectDescription,
       projectId: this.answers.projectId,
       projectName: this.answers.projectName,
-      year: new Date().getFullYear()
+      year: new Date().getFullYear(),
     }
 
     const copyOptions = { globOptions: { dot: true } }
