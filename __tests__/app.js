@@ -1,15 +1,15 @@
-const path = require("path");
-const assert = require("yeoman-assert");
-const helpers = require("yeoman-test");
+const path = require('path')
+const assert = require('yeoman-assert')
+const helpers = require('yeoman-test')
 
-describe("generator-mskelton:app", () => {
+describe('generator-mskelton:app', () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, "../generators/app"))
-      .withPrompts({ someAnswer: true });
-  });
+      .run(path.join(__dirname, '../generators/app'))
+      .withPrompts({ someAnswer: true })
+  })
 
-  it("creates files", () => {
-    assert.file(["dummyfile.txt"]);
-  });
-});
+  it('creates files', () => {
+    assert.file(['dummyfile.txt'])
+  })
+})
