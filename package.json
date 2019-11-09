@@ -24,14 +24,25 @@
   "engines": {
     "npm": ">= 4.0.0"
   },
+  "prettier": "@mskelton/prettier-config",
   "dependencies": {
-    "yeoman-generator": "^2.0.1",
     "chalk": "^2.1.0",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
   "devDependencies": {
-    "yeoman-test": "^1.7.0",
+    "@mskelton/eslint-config": "^5.0.3",
+    "@mskelton/prettier-config": "^5.0.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-sort-destructure-keys": "^1.3.3",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.8.0",
+    "prettier": "^1.19.1",
     "yeoman-assert": "^3.1.0",
-    "jest": "^24.8.0"
+    "yeoman-test": "^1.7.0"
   }
 }
