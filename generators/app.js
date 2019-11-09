@@ -50,7 +50,7 @@ module.exports = class extends Generator {
       {
         default: false,
         message: 'Is this project a VS Code extension?',
-        name: 'vscodeExtension',
+        name: 'vsce',
         type: 'confirm',
       },
     ])
@@ -76,7 +76,7 @@ module.exports = class extends Generator {
       copyOptions
     )
 
-    if (this.answers.vscodeExtension) {
+    if (this.answers.vsce) {
       this.fs.copyTpl(
         this.templatePath('vscode'),
         this.destinationPath(this.answers.projectId),

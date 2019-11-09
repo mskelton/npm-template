@@ -2,9 +2,11 @@ const path = require('path')
 const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 
+const projectId = 'my-project'
+
 const defaultPrompts = {
   projectDescription: 'Some description of my project',
-  projectId: 'my-project',
+  projectId,
   projectName: 'My Project',
 }
 
@@ -17,12 +19,11 @@ describe('Base template', () => {
 
   it('creates files', () => {
     assert.file([
-      '.all-contributorsrc',
-      '.gitignore',
-      'LICENSE',
-      'package.json',
-      'README.md',
-      'yarn.lock',
+      `${projectId}/.all-contributorsrc`,
+      `${projectId}/.gitignore`,
+      `${projectId}/LICENSE`,
+      `${projectId}/package.json`,
+      `${projectId}/README.md`,
     ])
   })
 
@@ -33,10 +34,13 @@ describe('VS Code template', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '..', 'generators', 'app'))
-      .withPrompts(defaultPrompts)
+      .withPrompts({ ...defaultPrompts, vsce: true })
   })
 
   it('creates', () => {
-    assert.file(['.github/workflows/publish.yml', '.vscode/launch.json'])
+    assert.file([
+      `${projectId}/.github/workflows/publish.yml`,
+      `${projectId}/.vscode/launch.json`,
+    ])
   })
 })
