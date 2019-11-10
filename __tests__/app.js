@@ -12,11 +12,15 @@ const defaultPrompts = {
   projectName,
 }
 
+function runGenerator(prompts) {
+  return helpers
+    .run(path.join(__dirname, '..', 'generators', 'app'))
+    .withPrompts({ ...defaultPrompts, ...prompts })
+}
+
 describe('Base template', () => {
   beforeAll(() => {
-    return helpers
-      .run(path.join(__dirname, '..', 'generators', 'app'))
-      .withPrompts(defaultPrompts)
+    return runGenerator()
   })
 
   it('creates files', () => {
@@ -75,11 +79,25 @@ describe('Base template', () => {
   })
 })
 
+describe('Keywords', () => {
+  const filename = `${projectId}/package.json`
+
+  it('accepts comma separated values without spaces', async () => {
+    await runGenerator({ keywords: 'one,two,three' })
+
+    assert.JSONFileContent(filename, { keywords: ['one', 'two', 'three'] })
+  })
+
+  it('accepts comma separated values with spaces', async () => {
+    await runGenerator({ keywords: 'one , two  ,  three  ' })
+
+    assert.JSONFileContent(filename, { keywords: ['one', 'two', 'three'] })
+  })
+})
+
 describe('VS Code template', () => {
   beforeAll(() => {
-    return helpers
-      .run(path.join(__dirname, '..', 'generators', 'app'))
-      .withPrompts({ ...defaultPrompts, vsce: true })
+    return runGenerator({ vsce: true })
   })
 
   it('creates files', () => {

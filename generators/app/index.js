@@ -24,6 +24,19 @@ module.exports = class extends Generator {
         type: 'input',
       },
       {
+        default: '',
+        message: 'What keywords describe your project (comma separated)?',
+        name: 'keywords',
+        type: 'input',
+      },
+      {
+        default: false,
+        message: 'Do you need ESLint and Prettier?',
+        name: 'lint',
+        type: 'confirm',
+      },
+      {
+        default: false,
         message: 'Is this project a VS Code extension?',
         name: 'vsce',
         type: 'confirm',
@@ -35,9 +48,8 @@ module.exports = class extends Generator {
 
   writing() {
     const context = {
-      projectDescription: this.answers.projectDescription,
-      projectId: this.answers.projectId,
-      projectName: this.answers.projectName,
+      ...this.answers,
+      keywords: this._parseKeywords(),
       year: new Date().getFullYear(),
     }
 
@@ -64,5 +76,12 @@ module.exports = class extends Generator {
 
   install() {
     this.yarnInstall(undefined, undefined, { cwd: this.destinationDir })
+  }
+
+  _parseKeywords() {
+    return this.answers.keywords
+      .split(',')
+      .map(keyword => keyword.trim())
+      .join('", "')
   }
 }
