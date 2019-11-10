@@ -19,7 +19,8 @@
     "generator"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postversion": "git push && git push --tags"
   },
   "engines": {
     "npm": ">= 4.0.0"
