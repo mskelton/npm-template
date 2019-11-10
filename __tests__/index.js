@@ -15,7 +15,7 @@ const defaultPrompts = {
 describe('Base template', () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, '..', 'generators', 'app'))
+      .run(path.join(__dirname, '..', 'app'))
       .withPrompts(defaultPrompts)
   })
 
@@ -78,7 +78,7 @@ describe('Base template', () => {
 describe('VS Code template', () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, '..', 'generators', 'app'))
+      .run(path.join(__dirname, '..', 'app'))
       .withPrompts({ ...defaultPrompts, vsce: true })
   })
 

@@ -11,12 +11,14 @@
   },
   "homepage": "https://github.com/mskelton/generator-mskelton#readme",
   "license": "MIT",
-  "main": "generators/app.js",
+  "main": "app/index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "yeoman",
+    "generator"
   ],
   "files": [
-    "generators"
+    "app"
   ],
   "scripts": {
     "test": "jest",
