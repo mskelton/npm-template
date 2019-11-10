@@ -16,7 +16,7 @@
     "yeoman-generator"
   ],
   "files": [
-    "generator"
+    "generators"
   ],
   "scripts": {
     "test": "jest",
