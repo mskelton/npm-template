@@ -24,13 +24,12 @@ module.exports = class extends Generator {
         type: 'input',
       },
       {
-        default: '',
         message: 'What keywords describe your project (comma separated)?',
         name: 'keywords',
         type: 'input',
       },
       {
-        default: false,
+        default: true,
         message: 'Do you need ESLint and Prettier?',
         name: 'lint',
         type: 'confirm',
@@ -43,34 +42,35 @@ module.exports = class extends Generator {
       },
     ])
 
+    // Helper variable for the destination path of package.json
+    this.packageJSON = this.destinationPath(
+      path.join(this.answers.projectId, 'package.json')
+    )
+
+    // Use the projectId as the project folder name
     this.destinationDir = path.join(process.cwd(), this.answers.projectId)
   }
 
   writing() {
-    const context = {
+    this.context = {
       ...this.answers,
-      keywords: this._parseKeywords(),
       year: new Date().getFullYear(),
     }
 
-    const copyOptions = { globOptions: { dot: true } }
+    // Base files are always copied
+    this._copyTpl('base')
 
-    this.fs.copyTpl(
-      this.templatePath('base'),
-      this.destinationPath(this.answers.projectId),
-      context,
-      undefined,
-      copyOptions
-    )
+    // Write keywords to package.json if provided by the user
+    this._writeKeywords()
 
+    // Copy the VS Code extension files
     if (this.answers.vsce) {
-      this.fs.copyTpl(
-        this.templatePath('vscode'),
-        this.destinationPath(this.answers.projectId),
-        context,
-        undefined,
-        copyOptions
-      )
+      this._copyTpl('vscode')
+    }
+
+    // Add lint config and install lint packages
+    if (this.answers.lint) {
+      this._installLinter()
     }
   }
 
@@ -78,10 +78,38 @@ module.exports = class extends Generator {
     this.yarnInstall(undefined, undefined, { cwd: this.destinationDir })
   }
 
-  _parseKeywords() {
-    return this.answers.keywords
+  _copyTpl(src) {
+    this.fs.copyTpl(
+      this.templatePath(src),
+      this.destinationPath(this.answers.projectId),
+      this.context,
+      undefined,
+      {
+        globOptions: {
+          dot: true,
+        },
+      }
+    )
+  }
+
+  _installLinter() {
+    this.fs.extendJSON(this.packageJSON, {
+      eslintConfig: {
+        extends: '@mskelton',
+      },
+      prettierConfig: '@mskelton/prettier-config',
+    })
+  }
+
+  _writeKeywords() {
+    if (!this.answers.keywords) {
+      return
+    }
+
+    const keywords = this.answers.keywords
       .split(',')
       .map(keyword => keyword.trim())
-      .join('", "')
+
+    this.fs.extendJSON(this.packageJSON, { keywords })
   }
 }

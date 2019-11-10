@@ -95,6 +95,28 @@ describe('Keywords', () => {
   })
 })
 
+describe('Linting', () => {
+  const filename = `${projectId}/package.json`
+
+  beforeAll(() => {
+    return runGenerator({ lint: true })
+  })
+
+  it('adds ESLint config to package.json', () => {
+    assert.JSONFileContent(filename, {
+      eslintConfig: {
+        extends: '@mskelton',
+      },
+    })
+  })
+
+  it('adds Prettier config to package.json', () => {
+    assert.JSONFileContent(filename, {
+      prettierConfig: '@mskelton/prettier-config',
+    })
+  })
+})
+
 describe('VS Code template', () => {
   beforeAll(() => {
     return runGenerator({ vsce: true })

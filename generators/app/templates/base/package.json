@@ -12,9 +12,7 @@
   },
   "homepage": "https://github.com/mskelton/<%= projectId %>#readme",
   "license": "MIT",
-  "keywords": [
-    "<%- keywords %>"
-  ],
+  "keywords": [],
   "scripts": {
     "postversion": "git push && git push --tags"
   }
