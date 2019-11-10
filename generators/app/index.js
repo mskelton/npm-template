@@ -49,6 +49,9 @@ module.exports = class extends Generator {
 
     // Use the projectId as the project folder name
     this.destinationDir = path.join(process.cwd(), this.answers.projectId)
+
+    // Install packages in the destination directory
+    this.installOptions = { cwd: this.destinationDir }
   }
 
   writing() {
@@ -74,10 +77,6 @@ module.exports = class extends Generator {
     }
   }
 
-  install() {
-    this.yarnInstall(undefined, undefined, { cwd: this.destinationDir })
-  }
-
   _copyTpl(src) {
     this.fs.copyTpl(
       this.templatePath(src),
@@ -99,6 +98,23 @@ module.exports = class extends Generator {
       },
       prettierConfig: '@mskelton/prettier-config',
     })
+
+    this.yarnInstall(
+      [
+        '@mskelton/eslint-config',
+        '@mskelton/prettier-config',
+        'eslint-plugin-import',
+        'eslint-plugin-node',
+        'eslint-plugin-prettier',
+        'eslint-plugin-promise',
+        'eslint-plugin-sort-destructure-keys',
+        'eslint-plugin-standard',
+        'eslint',
+        'prettier',
+      ],
+      { dev: true },
+      this.installOptions
+    )
   }
 
   _writeKeywords() {

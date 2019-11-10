@@ -6,6 +6,9 @@ const projectDescription = 'Some description of my project'
 const projectId = 'my-project'
 const projectName = 'My Project'
 
+// File paths
+const packageJSON = `${projectId}/package.json`
+
 const defaultPrompts = {
   projectDescription,
   projectId,
@@ -46,18 +49,16 @@ describe('Base template', () => {
   })
 
   describe('package.json', () => {
-    const filename = `${projectId}/package.json`
-
     it('uses project id for package name', () => {
-      assert.JSONFileContent(filename, { name: projectId })
+      assert.JSONFileContent(packageJSON, { name: projectId })
     })
 
     it('uses project description for package description', () => {
-      assert.JSONFileContent(filename, { description: projectDescription })
+      assert.JSONFileContent(packageJSON, { description: projectDescription })
     })
 
     it('contains repository, homepage, and bugs urls', () => {
-      assert.JSONFileContent(filename, {
+      assert.JSONFileContent(packageJSON, {
         bugs: {
           url: `https://github.com/mskelton/${projectId}/issues`,
         },
@@ -80,30 +81,26 @@ describe('Base template', () => {
 })
 
 describe('Keywords', () => {
-  const filename = `${projectId}/package.json`
-
   it('accepts comma separated values without spaces', async () => {
     await runGenerator({ keywords: 'one,two,three' })
 
-    assert.JSONFileContent(filename, { keywords: ['one', 'two', 'three'] })
+    assert.JSONFileContent(packageJSON, { keywords: ['one', 'two', 'three'] })
   })
 
   it('accepts comma separated values with spaces', async () => {
     await runGenerator({ keywords: 'one , two  ,  three  ' })
 
-    assert.JSONFileContent(filename, { keywords: ['one', 'two', 'three'] })
+    assert.JSONFileContent(packageJSON, { keywords: ['one', 'two', 'three'] })
   })
 })
 
 describe('Linting', () => {
-  const filename = `${projectId}/package.json`
-
   beforeAll(() => {
     return runGenerator({ lint: true })
   })
 
   it('adds ESLint config to package.json', () => {
-    assert.JSONFileContent(filename, {
+    assert.JSONFileContent(packageJSON, {
       eslintConfig: {
         extends: '@mskelton',
       },
@@ -111,7 +108,7 @@ describe('Linting', () => {
   })
 
   it('adds Prettier config to package.json', () => {
-    assert.JSONFileContent(filename, {
+    assert.JSONFileContent(packageJSON, {
       prettierConfig: '@mskelton/prettier-config',
     })
   })
