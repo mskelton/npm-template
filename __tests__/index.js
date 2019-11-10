@@ -15,7 +15,7 @@ const defaultPrompts = {
 describe('Base template', () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, '..', 'app'))
+      .run(path.join(__dirname, '..', 'generators', 'app'))
       .withPrompts(defaultPrompts)
   })
 
