@@ -1,5 +1,6 @@
 # Yoeman Generator mskelton
 
+[![Build status](https://github.com/mskelton/generator-mskelton/workflows/Build/badge.svg)](https://github.com/mskelton/generator-mskelton/actions)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
 
 > Yoeman generator for my projects.
