@@ -78,7 +78,7 @@ describe('Base template', () => {
 describe('VS Code template', () => {
   beforeAll(() => {
     return helpers
-      .run(path.join(__dirname, '..', 'app'))
+      .run(path.join(__dirname, '..', 'generators', 'app'))
       .withPrompts({ ...defaultPrompts, vsce: true })
   })
 
