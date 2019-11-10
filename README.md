@@ -1,9 +1,9 @@
-# Yoeman Generator mskelton
+# Yeoman Generator mskelton
 
 [![Build status](https://github.com/mskelton/generator-mskelton/workflows/Build/badge.svg)](https://github.com/mskelton/generator-mskelton/actions)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
 
-> Yoeman generator for my projects.
+> Yeoman generator for my projects.
 
 ![Screenshot](screenshots/default.png)
 
@@ -25,22 +25,6 @@ npm install -g generator-mskelton
 
 ```sh
 yo mskelton
-```
-
-There are multiple command-line options available:
-
-```sh
-Usage:
-  yo mskelton [options]
-
-Options:
-  -h,   --help          # Print the generator's options and usage
-        --skip-cache    # Do not remember prompt answers             Default: false
-        --skip-install  # Do not automatically install dependencies  Default: false
-        --project-id    # Project Id
-        --project-name  # Human-readable name for the project
-        --project-desc  # Short description of the project
-        --vsce          # Add VS Code extension files
 ```
 
 ## Contributors ✨

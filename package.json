@@ -1,6 +1,6 @@
 {
   "name": "generator-mskelton",
-  "description": "Yoeman generator for my projects.",
+  "description": "Yeoman generator for my projects.",
   "version": "1.0.1",
   "repository": {
     "type": "git",
