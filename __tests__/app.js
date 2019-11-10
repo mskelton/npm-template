@@ -82,10 +82,11 @@ describe('VS Code template', () => {
       .withPrompts({ ...defaultPrompts, vsce: true })
   })
 
-  it('creates', () => {
+  it('creates files', () => {
     assert.file([
       `${projectId}/.github/workflows/publish.yml`,
       `${projectId}/.vscode/launch.json`,
+      `${projectId}/.vscodeignore`,
     ])
   })
 
