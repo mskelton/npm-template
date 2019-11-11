@@ -79,7 +79,7 @@ module.exports = class extends Generator {
 
     // Copy the VS Code extension files
     if (this.answers.vsce) {
-      this._copyTpl('vscode')
+      this._copyTpl('vsce')
     }
 
     // Add lint config and install lint packages
