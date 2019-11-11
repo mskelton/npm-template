@@ -121,7 +121,12 @@ describe('npm library', () => {
   })
 
   it('creates files', () => {
-    assert.file([`${projectId}/.github/workflows/build.yml`])
+    assert.file(`${projectId}/.github/workflows/build.yml`)
+  })
+
+  it('adds installation steps to the readme', () => {
+    assert.fileContent(`${projectId}/README.md`, `yarn add ${projectId}`)
+    assert.fileContent(`${projectId}/README.md`, `npm install ${projectId}`)
   })
 })
 
