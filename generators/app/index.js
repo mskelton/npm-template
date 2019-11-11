@@ -72,6 +72,11 @@ module.exports = class extends Generator {
     // Write keywords to package.json if provided by the user
     this._writeKeywords()
 
+    // Copy the npm library files
+    if (this.answers.npm) {
+      this._copyTpl('npm')
+    }
+
     // Copy the VS Code extension files
     if (this.answers.vsce) {
       this._copyTpl('vscode')
