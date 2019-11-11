@@ -36,6 +36,12 @@ module.exports = class extends Generator {
       },
       {
         default: false,
+        message: 'Is this project an npm package?',
+        name: 'npm',
+        type: 'confirm',
+      },
+      {
+        default: false,
         message: 'Is this project a VS Code extension?',
         name: 'vsce',
         type: 'confirm',
