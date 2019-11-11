@@ -30,6 +30,7 @@ describe('Base template', () => {
     assert.file([
       `${projectId}/.all-contributorsrc`,
       `${projectId}/.gitignore`,
+      `${projectId}/CHANGELOG.md`,
       `${projectId}/LICENSE`,
       `${projectId}/package.json`,
       `${projectId}/README.md`,
@@ -111,6 +112,16 @@ describe('Linting', () => {
     assert.JSONFileContent(packageJSON, {
       prettierConfig: '@mskelton/prettier-config',
     })
+  })
+})
+
+describe('npm library', () => {
+  beforeAll(() => {
+    return runGenerator({ npm: true })
+  })
+
+  it('creates files', () => {
+    assert.file([`${projectId}/.github/workflows/build.yml`])
   })
 })
 
