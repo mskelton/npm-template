@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.1.0
+## v1.1.1
 
 - Added input for `package.json` keywords.
 - Added option to add ESLint and Prettier configs/dependencies.
