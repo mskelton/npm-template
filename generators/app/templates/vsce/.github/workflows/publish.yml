@@ -26,7 +26,7 @@ jobs:
       - name: Install
         run: yarn
       - name: Publish to Visual Studio Marketplace
-        run: yarn vsce publish -p ${{secrets.vsce_token}}
+        run: yarn vsce publish -p ${{ secrets.vsce_token }}
   publish-github:
     name: Publish to GitHub Release
     runs-on: ubuntu-latest
