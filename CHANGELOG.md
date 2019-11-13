@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.1.2
+
+- Use `prettier` key in package.json instead of `prettierConfig`
+
 ## v1.1.1
 
 - Added input for `package.json` keywords.

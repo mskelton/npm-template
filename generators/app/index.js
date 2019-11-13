@@ -107,7 +107,7 @@ module.exports = class extends Generator {
       eslintConfig: {
         extends: '@mskelton',
       },
-      prettierConfig: '@mskelton/prettier-config',
+      prettier: '@mskelton/prettier-config',
     })
 
     this.yarnInstall(

@@ -110,7 +110,7 @@ describe('Linting', () => {
 
   it('adds Prettier config to package.json', () => {
     assert.JSONFileContent(packageJSON, {
-      prettierConfig: '@mskelton/prettier-config',
+      prettier: '@mskelton/prettier-config',
     })
   })
 })
