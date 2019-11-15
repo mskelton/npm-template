@@ -2,6 +2,7 @@
 
 ## v1.2.0
 
+- Add new `mskelton:hub` generator for creating GitHub repos
 - Add support for scoped packages
 - Use `GITHUB_TOKEN` in GitHub action
 
