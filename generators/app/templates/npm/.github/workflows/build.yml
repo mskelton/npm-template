@@ -28,7 +28,7 @@ jobs:
         with:
           version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
         env:
-          GITHUB_TOKEN: ${{ secrets.github_auth_token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   publish:
     name: Publish to npm
     needs: build
