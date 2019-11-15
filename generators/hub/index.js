@@ -14,9 +14,9 @@ module.exports = class extends Generator {
     this.answers = await this.prompt([
       {
         choices: ['mskelton', 'one-dark'],
-        default: this._getDefaultOwner('mskelton'),
-        message: 'Who is the repo owner?',
-        name: 'owner',
+        default: this._getDefaultOrg('mskelton'),
+        message: 'Who is the repo org?',
+        name: 'org',
         type: 'list',
       },
       {
@@ -36,9 +36,9 @@ module.exports = class extends Generator {
 
   createRepo() {
     const url =
-      this.answers.owner === 'mskelton'
+      this.answers.org === 'mskelton'
         ? `/user/repos`
-        : `/orgs/${this.answers.owner}/repos`
+        : `/orgs/${this.answers.org}/repos`
 
     const payload = {
       allow_merge_commit: false,
@@ -60,7 +60,7 @@ module.exports = class extends Generator {
 
   addOrigin() {
     this.spawnCommand(
-      `git remote add origin git@github.com:${this.answers.owner}/${this.answers.name}.git`
+      `git remote add origin git@github.com:${this.answers.org}/${this.answers.name}.git`
     )
   }
 
@@ -68,7 +68,7 @@ module.exports = class extends Generator {
     this.packageJSON = this.fs.readJSON('package.json') || {}
   }
 
-  _getDefaultOwner(fallback) {
+  _getDefaultOrg(fallback) {
     if (!this.packageJSON.homepage) {
       return fallback
     }
