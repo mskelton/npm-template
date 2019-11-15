@@ -28,6 +28,7 @@
   },
   "prettier": "@mskelton/prettier-config",
   "dependencies": {
+    "uuid": "^3.3.3",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
