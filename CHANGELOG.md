@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.0
+
+- Add support for scoped packages
+- Use `GITHUB_TOKEN` in GitHub action
+
 ## v1.1.2
 
 - Use `prettier` key in package.json instead of `prettierConfig`
