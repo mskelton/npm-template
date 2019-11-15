@@ -137,15 +137,15 @@ describe('VS Code template', () => {
 
   it('creates files', () => {
     assert.file([
-      `${projectId}/.github/workflows/publish.yml`,
+      `${projectId}/.github/workflows/build.yml`,
       `${projectId}/.vscode/launch.json`,
       `${projectId}/.vscodeignore`,
     ])
   })
 
-  it('publish workflow contains project id', () => {
+  it('workflow contains project id', () => {
     assert.fileContent(
-      `${projectId}/.github/workflows/publish.yml`,
+      `${projectId}/.github/workflows/build.yml`,
       `yarn vsce package -o dist/${projectId}-\${GITHUB_REF/refs\\/tags\\//}.vsix`
     )
   })
