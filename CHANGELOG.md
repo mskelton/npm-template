@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.0
+
+- Rename VS Code extension workflow
+- Use GITHUB_TOKEN secret in VS Code extension
+
 ## v1.2.2
 
 - Add docs for repo generator
