@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.2.1
+## v1.2.2
 
 - Add docs for repo generator
 - Rename `mskelton:hub` to `mskelton:repo`
