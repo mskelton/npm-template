@@ -1,4 +1,4 @@
-const uuid = require('uuid/v4')
+const axios = require('axios')
 const Generator = require('yeoman-generator')
 const yosay = require('yosay')
 
@@ -28,40 +28,40 @@ module.exports = class extends Generator {
       {
         default: this.packageJSON.description,
         message: 'What is the repo description?',
-        name: 'name',
-        type: 'input',
-      },
-      {
-        default: this._getDefaultKeywords(),
-        message: 'Please enter some keywords for the repo?',
-        name: 'name',
+        name: 'description',
         type: 'input',
       },
     ])
   }
 
   createRepo() {
-    const mutation = `
-      mutation {
-        createRepository(input: {
-          clientMutationId: "${uuid()}",
-          name: "${this.answers.name}",
-          ownerId: "${this.answers.owner}",
-          description: "${this.answers.description || ''}",
-          hasProjectsEnabled: false,
-          visibility: PRIVATE
-        }) {
-          clientMutationId
-          name
-          ownerId
-          description
-          hasProjectsEnabled
-          visibility
-        }
-      }
-    `
+    const url =
+      this.answers.owner === 'mskelton'
+        ? `/user/repos`
+        : `/orgs/${this.answers.owner}/repos`
 
-    console.log(mutation)
+    const payload = {
+      allow_merge_commit: false,
+      allow_rebase_merge: false,
+      description: this.answers.description,
+      has_projects: false,
+      has_wiki: false,
+      name: this.answers.name,
+      private: false,
+    }
+
+    const headers = {
+      Accept: 'application/vnd.github.v3+json',
+      Authorization: `token ${process.env.GITHUB_TOKEN}`,
+    }
+
+    return axios.post('https://api.github.com' + url, payload, { headers })
+  }
+
+  addOrigin() {
+    this.spawnCommand(
+      `git remote add origin git@github.com:${this.answers.owner}/${this.answers.name}.git`
+    )
   }
 
   _readPackageJSON() {
@@ -78,11 +78,5 @@ module.exports = class extends Generator {
     )
 
     return match ? match[1] : fallback
-  }
-
-  _getDefaultKeywords() {
-    return this.packageJSON.keywords
-      ? this.packageJSON.keywords.join(',')
-      : null
   }
 }
