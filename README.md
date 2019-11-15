@@ -27,6 +27,14 @@ npm install -g generator-mskelton
 yo mskelton
 ```
 
+In addition to the base mskelton generator, this package also includes a generator for creating GitHub repositories. To use this generator, first ensure that you have a `GITHUB_TOKEN` exported in your shell. This token can be created on your GitHub user settings and should have the `public_repo` OAuth scope.
+
+Once you have exported the `GITHUB_TOKEN` environment variable, run the following command to run the repo generator.
+
+```sh
+yarn mskelton:repo
+```
+
 ## Contributors ✨
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->

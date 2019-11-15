@@ -8,7 +8,7 @@ async function runGenerator(prompts, packageJSON = {}) {
   let generator
 
   await helpers
-    .run(path.join(__dirname, '../generators/hub'))
+    .run(path.join(__dirname, '../generators/repo'))
     .withPrompts(prompts)
     .on('ready', gen => {
       generator = gen

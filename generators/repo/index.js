@@ -5,7 +5,7 @@ const yosay = require('yosay')
 module.exports = class extends Generator {
   async prompting() {
     // Have Yeoman greet the user
-    this.log(yosay('Welcome to the mskelton GitHub generator!'))
+    this.log(yosay('Welcome to the mskelton repo generator!'))
 
     // Read the package.json file to get the default values
     this._readPackageJSON()

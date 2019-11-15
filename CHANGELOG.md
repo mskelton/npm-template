@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.2.1
+
+- Add docs for repo generator
+- Rename `mskelton:hub` to `mskelton:repo`
+
 ## v1.2.0
 
 - Add new `mskelton:hub` generator for creating GitHub repos
