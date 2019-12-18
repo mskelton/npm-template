@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.4.0
+
+- Rename project id to repo name
+- Rename project name to package name
+
 ## v1.3.0
 
 - Rename VS Code extension workflow
