@@ -4,6 +4,7 @@
 
 - Rename project id to repo name
 - Rename project name to package name
+- Install `eslint-plugin-sort-keys-fix` when installing ESLint dependencies
 
 ## v1.3.0
 

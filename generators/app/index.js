@@ -119,6 +119,7 @@ module.exports = class extends Generator {
         'eslint-plugin-prettier',
         'eslint-plugin-promise',
         'eslint-plugin-sort-destructure-keys',
+        'eslint-plugin-sort-keys-fix',
         'eslint-plugin-standard',
         'eslint',
         'prettier',
