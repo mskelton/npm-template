@@ -1,6 +1,6 @@
 # <%= packageName %>
 
-<% if (npm) { %>[![Build status](https://github.com/mskelton/<%= projectId %>/workflows/Build/badge.svg)](https://github.com/mskelton/<%= projectId %>/actions)<% } %>
+<% if (npm) { %>[![Build status](https://github.com/mskelton/<%= repoName %>/workflows/Build/badge.svg)](https://github.com/mskelton/<%= repoName %>/actions)<% } %>
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
 
 > <%= projectDescription %>
@@ -10,10 +10,10 @@
 <% if (npm) { %>
 ```sh
 # Yarn
-yarn add <%= projectId %>
+yarn add <%= repoName %>
 
 # npm
-npm install <%= projectId %>
+npm install <%= repoName %>
 ```
 <% } else { %>
 // TODO

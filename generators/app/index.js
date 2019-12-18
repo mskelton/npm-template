@@ -15,7 +15,7 @@ module.exports = class extends Generator {
       },
       {
         message: 'What is the repository name?',
-        name: 'projectId',
+        name: 'repoName',
         type: 'input',
       },
       {
@@ -50,11 +50,11 @@ module.exports = class extends Generator {
 
     // Helper variable for the destination path of package.json
     this.packageJSON = this.destinationPath(
-      path.join(this.answers.projectId, 'package.json')
+      path.join(this.answers.repoName, 'package.json')
     )
 
-    // Use the projectId as the project folder name
-    this.destinationDir = path.join(process.cwd(), this.answers.projectId)
+    // Use the repoName as the project folder name
+    this.destinationDir = path.join(process.cwd(), this.answers.repoName)
 
     // Install packages in the destination directory
     this.installOptions = { cwd: this.destinationDir }
@@ -91,7 +91,7 @@ module.exports = class extends Generator {
   _copyTpl(src) {
     this.fs.copyTpl(
       this.templatePath(src),
-      this.destinationPath(this.answers.projectId),
+      this.destinationPath(this.answers.repoName),
       this.context,
       undefined,
       {

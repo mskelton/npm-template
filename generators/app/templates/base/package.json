@@ -1,16 +1,16 @@
 {
-  "name": "<%= projectId %>",
+  "name": "<%= repoName %>",
   "description": "<%= projectDescription %>",
   "version": "0.0.0",
   "author": "Mark Skelton",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mskelton/<%= projectId %>.git"
+    "url": "https://github.com/mskelton/<%= repoName %>.git"
   },
   "bugs": {
-    "url": "https://github.com/mskelton/<%= projectId %>/issues"
+    "url": "https://github.com/mskelton/<%= repoName %>/issues"
   },
-  "homepage": "https://github.com/mskelton/<%= projectId %>#readme",
+  "homepage": "https://github.com/mskelton/<%= repoName %>#readme",
   "license": "MIT",
   "keywords": [],
   "scripts": {

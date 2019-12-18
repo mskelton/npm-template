@@ -3,16 +3,16 @@ const assert = require('yeoman-assert')
 const helpers = require('yeoman-test')
 
 const projectDescription = 'Some description of my project'
-const projectId = 'my-project'
+const repoName = 'my-project'
 const packageName = 'My Project'
 
 // File paths
-const packageJSON = `${projectId}/package.json`
+const packageJSON = `${repoName}/package.json`
 
 const defaultPrompts = {
-  projectDescription,
-  projectId,
   packageName,
+  projectDescription,
+  repoName,
 }
 
 function runGenerator(prompts) {
@@ -28,17 +28,17 @@ describe('Base template', () => {
 
   it('creates files', () => {
     assert.file([
-      `${projectId}/.all-contributorsrc`,
-      `${projectId}/.gitignore`,
-      `${projectId}/CHANGELOG.md`,
-      `${projectId}/LICENSE`,
-      `${projectId}/package.json`,
-      `${projectId}/README.md`,
+      `${repoName}/.all-contributorsrc`,
+      `${repoName}/.gitignore`,
+      `${repoName}/CHANGELOG.md`,
+      `${repoName}/LICENSE`,
+      `${repoName}/package.json`,
+      `${repoName}/README.md`,
     ])
   })
 
   describe('README', () => {
-    const filename = `${projectId}/README.md`
+    const filename = `${repoName}/README.md`
 
     it('uses project name for level 1 header', () => {
       assert.fileContent(filename, new RegExp(`^# ${packageName}\n`))
@@ -51,7 +51,7 @@ describe('Base template', () => {
 
   describe('package.json', () => {
     it('uses project id for package name', () => {
-      assert.JSONFileContent(packageJSON, { name: projectId })
+      assert.JSONFileContent(packageJSON, { name: repoName })
     })
 
     it('uses project description for package description', () => {
@@ -61,11 +61,11 @@ describe('Base template', () => {
     it('contains repository, homepage, and bugs urls', () => {
       assert.JSONFileContent(packageJSON, {
         bugs: {
-          url: `https://github.com/mskelton/${projectId}/issues`,
+          url: `https://github.com/mskelton/${repoName}/issues`,
         },
-        homepage: `https://github.com/mskelton/${projectId}#readme`,
+        homepage: `https://github.com/mskelton/${repoName}#readme`,
         repository: {
-          url: `https://github.com/mskelton/${projectId}.git`,
+          url: `https://github.com/mskelton/${repoName}.git`,
         },
       })
     })
@@ -74,7 +74,7 @@ describe('Base template', () => {
   describe('LICENSE', () => {
     it('contains current year', () => {
       assert.fileContent(
-        `${projectId}/LICENSE`,
+        `${repoName}/LICENSE`,
         `Copyright (c) ${new Date().getFullYear()} Mark Skelton`
       )
     })
@@ -121,12 +121,12 @@ describe('npm library', () => {
   })
 
   it('creates files', () => {
-    assert.file(`${projectId}/.github/workflows/build.yml`)
+    assert.file(`${repoName}/.github/workflows/build.yml`)
   })
 
   it('adds installation steps to the readme', () => {
-    assert.fileContent(`${projectId}/README.md`, `yarn add ${projectId}`)
-    assert.fileContent(`${projectId}/README.md`, `npm install ${projectId}`)
+    assert.fileContent(`${repoName}/README.md`, `yarn add ${repoName}`)
+    assert.fileContent(`${repoName}/README.md`, `npm install ${repoName}`)
   })
 })
 
@@ -137,16 +137,16 @@ describe('VS Code template', () => {
 
   it('creates files', () => {
     assert.file([
-      `${projectId}/.github/workflows/build.yml`,
-      `${projectId}/.vscode/launch.json`,
-      `${projectId}/.vscodeignore`,
+      `${repoName}/.github/workflows/build.yml`,
+      `${repoName}/.vscode/launch.json`,
+      `${repoName}/.vscodeignore`,
     ])
   })
 
   it('workflow contains project id', () => {
     assert.fileContent(
-      `${projectId}/.github/workflows/build.yml`,
-      `yarn vsce package -o dist/${projectId}-\${GITHUB_REF/refs\\/tags\\//}.vsix`
+      `${repoName}/.github/workflows/build.yml`,
+      `yarn vsce package -o dist/${repoName}-\${GITHUB_REF/refs\\/tags\\//}.vsix`
     )
   })
 })
