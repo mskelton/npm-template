@@ -40,7 +40,7 @@ describe('Base template', () => {
   describe('README', () => {
     const filename = `${repoName}/README.md`
 
-    it('uses project name for level 1 header', () => {
+    it('uses package name for level 1 header', () => {
       assert.fileContent(filename, new RegExp(`^# ${packageName}\n`))
     })
 
@@ -50,8 +50,8 @@ describe('Base template', () => {
   })
 
   describe('package.json', () => {
-    it('uses project id for package name', () => {
-      assert.JSONFileContent(packageJSON, { name: repoName })
+    it('uses package name for package name', () => {
+      assert.JSONFileContent(packageJSON, { name: packageName })
     })
 
     it('uses project description for package description', () => {
@@ -143,7 +143,7 @@ describe('VS Code template', () => {
     ])
   })
 
-  it('workflow contains project id', () => {
+  it('workflow contains repo name', () => {
     assert.fileContent(
       `${repoName}/.github/workflows/build.yml`,
       `yarn vsce package -o dist/${repoName}-\${GITHUB_REF/refs\\/tags\\//}.vsix`

@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.4.0
+## v1.4.1
 
 - Rename project id to repo name
 - Rename project name to package name
