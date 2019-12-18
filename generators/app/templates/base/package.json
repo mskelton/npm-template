@@ -1,5 +1,5 @@
 {
-  "name": "<%= repoName %>",
+  "name": "<%= packageName %>",
   "description": "<%= projectDescription %>",
   "version": "0.0.0",
   "author": "Mark Skelton",
