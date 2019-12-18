@@ -10,10 +10,10 @@
 <% if (npm) { %>
 ```sh
 # Yarn
-yarn add <%= repoName %>
+yarn add <%= packageName %>
 
 # npm
-npm install <%= repoName %>
+npm install <%= packageName %>
 ```
 <% } else { %>
 // TODO

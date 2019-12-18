@@ -4,7 +4,7 @@ const helpers = require('yeoman-test')
 
 const projectDescription = 'Some description of my project'
 const repoName = 'my-project'
-const packageName = 'My Project'
+const packageName = '@mskelton/my-project'
 
 // File paths
 const packageJSON = `${repoName}/package.json`
@@ -125,8 +125,8 @@ describe('npm library', () => {
   })
 
   it('adds installation steps to the readme', () => {
-    assert.fileContent(`${repoName}/README.md`, `yarn add ${repoName}`)
-    assert.fileContent(`${repoName}/README.md`, `npm install ${repoName}`)
+    assert.fileContent(`${repoName}/README.md`, `yarn add ${packageName}`)
+    assert.fileContent(`${repoName}/README.md`, `npm install ${packageName}`)
   })
 })
 
