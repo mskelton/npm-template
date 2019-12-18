@@ -1,4 +1,4 @@
-# <%= projectName %>
+# <%= packageName %>
 
 <% if (npm) { %>[![Build status](https://github.com/mskelton/<%= projectId %>/workflows/Build/badge.svg)](https://github.com/mskelton/<%= projectId %>/actions)<% } %>
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)

@@ -4,7 +4,7 @@ const helpers = require('yeoman-test')
 
 const projectDescription = 'Some description of my project'
 const projectId = 'my-project'
-const projectName = 'My Project'
+const packageName = 'My Project'
 
 // File paths
 const packageJSON = `${projectId}/package.json`
@@ -12,7 +12,7 @@ const packageJSON = `${projectId}/package.json`
 const defaultPrompts = {
   projectDescription,
   projectId,
-  projectName,
+  packageName,
 }
 
 function runGenerator(prompts) {
@@ -41,7 +41,7 @@ describe('Base template', () => {
     const filename = `${projectId}/README.md`
 
     it('uses project name for level 1 header', () => {
-      assert.fileContent(filename, new RegExp(`^# ${projectName}\n`))
+      assert.fileContent(filename, new RegExp(`^# ${packageName}\n`))
     })
 
     it('has quoted block with project description', () => {

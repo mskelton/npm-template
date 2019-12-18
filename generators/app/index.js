@@ -9,13 +9,13 @@ module.exports = class extends Generator {
 
     this.answers = await this.prompt([
       {
-        message: 'What is the project id?',
-        name: 'projectId',
+        message: 'What is the package name?',
+        name: 'packageName',
         type: 'input',
       },
       {
-        message: 'What is the project human-readable name?',
-        name: 'projectName',
+        message: 'What is the repository name?',
+        name: 'projectId',
         type: 'input',
       },
       {
