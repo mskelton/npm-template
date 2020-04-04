@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.5.0
+
+- Update to Prettier 2
+- Remove custom prettier config
+
 ## v1.4.1
 
 - Rename project id to repo name
