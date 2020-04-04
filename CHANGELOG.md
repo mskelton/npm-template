@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.6.0
+
+- Turn on auto delete head branches
+- Don't spawn git commands but log them instead.
+
 ## v1.5.0
 
 - Update to Prettier 2
