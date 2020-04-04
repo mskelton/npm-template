@@ -43,6 +43,7 @@ module.exports = class extends Generator {
     const payload = {
       allow_merge_commit: false,
       allow_rebase_merge: false,
+      delete_branch_on_merge: true,
       description: this.answers.description,
       has_projects: false,
       has_wiki: false,
@@ -59,9 +60,12 @@ module.exports = class extends Generator {
   }
 
   addOrigin() {
-    this.spawnCommand(
-      `git remote add origin git@github.com:${this.answers.org}/${this.answers.name}.git`
-    );
+    const { name, org } = this.answers;
+
+    console.log(`To finish creating the repo, run the following commands:
+
+git remote add origin git@github.com:${org}/${name}.git
+git push -u origin master`);
   }
 
   _readPackageJSON() {

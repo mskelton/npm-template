@@ -3,6 +3,19 @@ const path = require("path");
 const helpers = require("yeoman-test");
 
 jest.spyOn(axios, "post").mockImplementation(jest.fn());
+jest.spyOn(global.console, "log");
+
+beforeEach(() => {
+  jest.resetAllMocks();
+});
+
+const getMessage = (
+  org,
+  name
+) => `To finish creating the repo, run the following commands:
+
+git remote add origin git@github.com:${org}/${name}.git
+git push -u origin master`;
 
 async function runGenerator(prompts, packageJSON = {}) {
   let generator;
@@ -19,55 +32,64 @@ async function runGenerator(prompts, packageJSON = {}) {
   return generator;
 }
 
-function getRemoteCommand(org, name) {
-  return `git remote add origin git@github.com:${org}/${name}.git`;
-}
-
 describe("setting prompt defaults", () => {
   describe("when homepage is not present in package.json", () => {
     it("defaults org to mskelton", async () => {
-      const generator = await runGenerator({ name: "my-repo" });
+      await runGenerator({ name: "my-repo" });
 
-      expect(generator.spawnCommand).toBeCalledWith(
-        getRemoteCommand("mskelton", "my-repo")
+      expect(axios.post).toBeCalledWith(
+        "https://api.github.com/user/repos",
+        expect.objectContaining({ name: "my-repo" }),
+        expect.anything()
       );
+
+      expect(console.log).toBeCalledWith(getMessage("mskelton", "my-repo"));
     });
   });
 
   describe("when homepage is present in package.json", () => {
     describe("and is a valid GitHub url", () => {
       it("extracts org from homepage", async () => {
-        const generator = await runGenerator(
+        await runGenerator(
           { name: "my-repo" },
           { homepage: "https://github.com/my-org/my-repo" }
         );
 
-        expect(generator.spawnCommand).toBeCalledWith(
-          getRemoteCommand("my-org", "my-repo")
+        expect(axios.post).toBeCalledWith(
+          "https://api.github.com/orgs/my-org/repos",
+          expect.objectContaining({ name: "my-repo" }),
+          expect.anything()
         );
+
+        expect(console.log).toBeCalledWith(getMessage("my-org", "my-repo"));
       });
     });
 
     describe("and is not a valid GitHub url", () => {
-      it("extracts org from homepage", async () => {
-        const generator = await runGenerator(
-          { name: "my-repo" },
-          { homepage: "foo" }
+      it("uses default personal url", async () => {
+        await runGenerator({ name: "my-repo" }, { homepage: "foo" });
+
+        expect(axios.post).toBeCalledWith(
+          "https://api.github.com/user/repos",
+          expect.objectContaining({ name: "my-repo" }),
+          expect.anything()
         );
 
-        expect(generator.spawnCommand).toBeCalledWith(
-          getRemoteCommand("mskelton", "my-repo")
-        );
+        expect(console.log).toBeCalledWith(getMessage("mskelton", "my-repo"));
       });
     });
   });
 
   it("extracts name from package.json name", async () => {
-    const generator = await runGenerator({ org: "foo" }, { name: "bar" });
+    await runGenerator({ org: "foo" }, { name: "bar" });
 
-    expect(generator.spawnCommand).toBeCalledWith(
-      getRemoteCommand("foo", "bar")
+    expect(axios.post).toBeCalledWith(
+      "https://api.github.com/orgs/foo/repos",
+      expect.objectContaining({ name: "bar" }),
+      expect.anything()
     );
+
+    expect(console.log).toBeCalledWith(getMessage("foo", "bar"));
   });
 
   it("extracts description from package.json description", async () => {
