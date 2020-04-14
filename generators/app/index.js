@@ -109,7 +109,7 @@ module.exports = class extends Generator {
       },
     });
 
-    this.yarnInstall(
+    this.npmInstall(
       [
         "@mskelton/eslint-config",
         "eslint-plugin-import",

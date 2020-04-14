@@ -12,11 +12,6 @@
 First, install [Yeoman](http://yeoman.io) and generator-mskelton.
 
 ```sh
-# Yarn
-yarn global add yo
-yarn global add generator-mskelton
-
-# npm
 npm install -g yo
 npm install -g generator-mskelton
 ```
@@ -32,7 +27,7 @@ In addition to the base mskelton generator, this package also includes a generat
 Once you have exported the `GITHUB_TOKEN` environment variable, run the following command to run the repo generator.
 
 ```sh
-yarn mskelton:repo
+yo mskelton:repo
 ```
 
 ## Contributors ✨

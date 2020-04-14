@@ -9,10 +9,6 @@
 
 <% if (npm) { %>
 ```sh
-# Yarn
-yarn add <%= packageName %>
-
-# npm
 npm install <%= packageName %>
 ```
 <% } else { %>
