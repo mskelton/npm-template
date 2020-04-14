@@ -119,7 +119,6 @@ describe("npm library", () => {
   });
 
   it("adds installation steps to the readme", () => {
-    assert.fileContent(`${repoName}/README.md`, `yarn add ${packageName}`);
     assert.fileContent(`${repoName}/README.md`, `npm install ${packageName}`);
   });
 });
@@ -140,7 +139,7 @@ describe("VS Code template", () => {
   it("workflow contains repo name", () => {
     assert.fileContent(
       `${repoName}/.github/workflows/build.yml`,
-      `yarn vsce package -o dist/${repoName}-\${GITHUB_REF/refs\\/tags\\//}.vsix`
+      `npx vsce package -o dist/${repoName}-\${GITHUB_REF/refs\\/tags\\//}.vsix`
     );
   });
 });
