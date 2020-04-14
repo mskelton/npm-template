@@ -1,7 +1,7 @@
 {
   "name": "generator-mskelton",
   "description": "Yeoman generator for my projects.",
-  "version": "1.7.0",
+  "version": "0.0.0-semantically-released",
   "repository": {
     "type": "git",
     "url": "https://github.com/mskelton/generator-mskelton.git"
