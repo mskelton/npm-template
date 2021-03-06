@@ -10,7 +10,7 @@
     "url": "https://github.com/mskelton/generator-mskelton/issues"
   },
   "homepage": "https://github.com/mskelton/generator-mskelton#readme",
-  "license": "MIT",
+  "license": "ISC",
   "keywords": [
     "yeoman-generator",
     "yeoman",

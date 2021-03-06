@@ -11,7 +11,7 @@
     "url": "https://github.com/mskelton/<%= repoName %>/issues"
   },
   "homepage": "https://github.com/mskelton/<%= repoName %>#readme",
-  "license": "MIT",
+  "license": "ISC",
   "keywords": [],
   "scripts": {
     "postversion": "git push && git push --tags"

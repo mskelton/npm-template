@@ -75,7 +75,7 @@ describe("Base template", () => {
     it("contains current year", () => {
       assert.fileContent(
         `${repoName}/LICENSE`,
-        `Copyright (c) ${new Date().getFullYear()} Mark Skelton`
+        `Copyright (c) ${new Date().getFullYear()}, Mark Skelton`
       );
     });
   });
