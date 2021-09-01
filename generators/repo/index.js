@@ -65,7 +65,7 @@ module.exports = class extends Generator {
     console.log(`To finish creating the repo, run the following commands:
 
 git remote add origin git@github.com:${org}/${name}.git
-git push -u origin master`);
+git push -u origin main`);
   }
 
   _readPackageJSON() {

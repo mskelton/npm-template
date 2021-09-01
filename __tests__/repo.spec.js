@@ -15,7 +15,7 @@ const getMessage = (
 ) => `To finish creating the repo, run the following commands:
 
 git remote add origin git@github.com:${org}/${name}.git
-git push -u origin master`;
+git push -u origin main`;
 
 async function runGenerator(prompts, packageJSON = {}) {
   let generator;
