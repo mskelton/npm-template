@@ -1,56 +1,31 @@
 {
-  "name": "generator-mskelton",
-  "description": "Yeoman generator for my projects.",
+  "name": "create-mskelton",
+  "description": "Project generator for my personal projects.",
   "version": "0.0.0-semantically-released",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mskelton/generator-mskelton.git"
-  },
+  "repository": "github:mskelton/create-mskelton",
   "bugs": {
-    "url": "https://github.com/mskelton/generator-mskelton/issues"
+    "url": "https://github.com/mskelton/create-mskelton/issues"
   },
-  "homepage": "https://github.com/mskelton/generator-mskelton#readme",
+  "homepage": "https://github.com/mskelton/create-mskelton#readme",
   "license": "ISC",
-  "keywords": [
-    "yeoman-generator",
-    "yeoman",
-    "generator"
-  ],
-  "files": [
-    "generators"
-  ],
-  "scripts": {
-    "test": "jest"
-  },
+  "packageManager": "yarn@3.1.0",
+  "type": "module",
   "engines": {
-    "npm": ">= 4.0.0"
+    "node": ">= 16.0.0"
   },
-  "eslintConfig": {
-    "extends": "@mskelton"
-  },
-  "release": {
-    "branches": [
-      "main"
-    ]
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "axios": "^0.21.1",
-    "yeoman-generator": "^5.4.2",
-    "yosay": "^2.0.2"
+    "axios": "^0.24.0"
   },
   "devDependencies": {
-    "@mskelton/eslint-config": "^5.7.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-sort-destructure-keys": "^1.3.3",
-    "eslint-plugin-sort-keys-fix": "^1.1.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "jest": "^25.3.0",
-    "prettier": "^2.0.4",
-    "yeoman-assert": "^3.1.1",
-    "yeoman-test": "^6.2.0"
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "@mskelton/eslint-config": "^6.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-sort": "^1.5.0",
+    "prettier": "2.4.1"
   }
 }

@@ -8,9 +8,11 @@
 ## Installation
 
 <% if (npm) { %>
+
 ```sh
 npm install <%= packageName %>
 ```
+
 <% } else { %>
 // TODO
 <% } %>
