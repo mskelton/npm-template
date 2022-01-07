@@ -1,31 +1,36 @@
 {
-  "name": "create-mskelton",
-  "description": "Project generator for my personal projects.",
+  "name": "npm-template",
+  "description": "",
   "version": "0.0.0-semantically-released",
-  "repository": "github:mskelton/create-mskelton",
+  "author": "Mark Skelton",
+  "packageManager": "yarn@3.1.1",
+  "repository": "github:mskelton/npm-template",
   "bugs": {
-    "url": "https://github.com/mskelton/create-mskelton/issues"
+    "url": "https://github.com/mskelton/npm-template/issues"
   },
-  "homepage": "https://github.com/mskelton/create-mskelton#readme",
+  "homepage": "https://github.com/mskelton/npm-template#readme",
   "license": "ISC",
-  "packageManager": "yarn@3.1.0",
+  "keywords": [],
   "type": "module",
-  "engines": {
-    "node": ">= 16.0.0"
-  },
+  "files": [
+    "src",
+    "lib"
+  ],
   "scripts": {
     "lint": "eslint .",
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "axios": "^0.24.0"
+    "format": "prettier --write .",
+    "ts": "tsc"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/eslint-parser": "^7.16.3",
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
     "@mskelton/eslint-config": "^6.1.0",
-    "eslint": "^7.32.0",
+    "@mskelton/tsconfig": "^1.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
     "eslint-plugin-sort": "^1.5.0",
-    "prettier": "2.4.1"
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
   }
 }

@@ -1,27 +1,21 @@
-# create-mskelton
+# npm-template
 
-[![Build status](https://github.com/mskelton/create-mskelton/workflows/Release/badge.svg)](https://github.com/mskelton/create-mskelton/actions)
+[![Build status](https://github.com/mskelton/npm-template/workflows/Build/badge.svg)](https://github.com/mskelton/npm-template/actions)
 
-## Usage
+## Installation
 
 ### npm
 
 ```sh
-npm init mskelton
+npm install npm-template
 ```
 
 ### Yarn
 
 ```sh
-yarn create mskelton
+yarn add npm-template
 ```
 
-## CLI Flags
+## Usage
 
-### `--actions`
-
-When set, the generate will include standard build and format workflows for GitHub actions.
-
-### `--create-repo`
-
-When set, the generator will create a GitHub repo to accompany your project. To use this flag, first ensure that you have a `GITHUB_TOKEN` exported in your shell. This token can be created on your GitHub user settings and should have the `public_repo` OAuth scope.
+// TODO
