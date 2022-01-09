@@ -767,14 +767,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sort@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "eslint-plugin-sort@npm:2.2.0"
+"eslint-plugin-sort@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "eslint-plugin-sort@npm:2.2.1"
   dependencies:
     "@typescript-eslint/experimental-utils": ^5.9.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 9a6119ec20578bef495e4fd5bc374d6621ba9c44ebf791cdc19dcebc2e35cd671b2c8e72c19cd6eeaa71b84d6e0bcfaf6d658b574de288133286c62ba9a2d036
+  checksum: 60977d4245515228a2e4146c4f2fa9815c206f56e04da20c99489f8e9d669bc9099ea223dca38fcde01e613333cd0ec1dd461f5d33492d67d79b482c50fbadac
   languageName: node
   linkType: hard
 
@@ -1317,7 +1317,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": ^5.9.0
     "@typescript-eslint/parser": ^5.9.0
     eslint: ^8.6.0
-    eslint-plugin-sort: ^2.2.0
+    eslint-plugin-sort: ^2.2.1
     prettier: ^2.5.1
     typescript: ^4.5.4
   languageName: unknown
