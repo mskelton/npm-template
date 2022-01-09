@@ -283,9 +283,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mskelton/eslint-config@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@mskelton/eslint-config@npm:7.0.0"
+"@mskelton/eslint-config@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@mskelton/eslint-config@npm:7.1.0"
   dependencies:
     eslint-config-prettier: ^8.3.0
   peerDependencies:
@@ -297,7 +297,7 @@ __metadata:
     eslint-plugin-jest: ">= 25"
     eslint-plugin-react: ">= 7"
     eslint-plugin-react-hooks: ">= 4"
-    eslint-plugin-sort: ">= 2"
+    eslint-plugin-sort: ">= 2.2.0"
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
@@ -309,7 +309,7 @@ __metadata:
       optional: true
     eslint-plugin-react-hooks:
       optional: true
-  checksum: eee68525930fd70ff7a15c21ec473680d41d932d85674225ba482efd7e8a1acc3cc6aa406223202091892d9c7fbf4eafdd860101923311022f6d7db6e9288360
+  checksum: 1934c7cb9fb314e13cb2f9e31573c71e621999f5bb2315e0b183acc80964e930430f0d6c578d34aa3d503d3fceaecf85e8309cd8b29a7bfd7218c5ac2a43178f
   languageName: node
   linkType: hard
 
@@ -377,7 +377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/experimental-utils@npm:5.9.0":
+"@typescript-eslint/experimental-utils@npm:5.9.0, @typescript-eslint/experimental-utils@npm:^5.9.0":
   version: 5.9.0
   resolution: "@typescript-eslint/experimental-utils@npm:5.9.0"
   dependencies:
@@ -767,12 +767,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sort@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "eslint-plugin-sort@npm:2.0.0"
+"eslint-plugin-sort@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "eslint-plugin-sort@npm:2.2.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": ^5.9.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 124e0a1a19f471f12047116e82f41d60f81d88bcebd88251ad4dad9592f82003bd7e93a66c97996a4a05c521ee26fda3ea7e96c9825c52ee219486855efbab3d
+  checksum: 9a6119ec20578bef495e4fd5bc374d6621ba9c44ebf791cdc19dcebc2e35cd671b2c8e72c19cd6eeaa71b84d6e0bcfaf6d658b574de288133286c62ba9a2d036
   languageName: node
   linkType: hard
 
@@ -1310,12 +1312,12 @@ __metadata:
   dependencies:
     "@babel/core": ^7.16.7
     "@babel/eslint-parser": ^7.16.5
-    "@mskelton/eslint-config": ^7.0.0
+    "@mskelton/eslint-config": ^7.1.0
     "@mskelton/tsconfig": ^1.1.1
     "@typescript-eslint/eslint-plugin": ^5.9.0
     "@typescript-eslint/parser": ^5.9.0
     eslint: ^8.6.0
-    eslint-plugin-sort: ^2.0.0
+    eslint-plugin-sort: ^2.2.0
     prettier: ^2.5.1
     typescript: ^4.5.4
   languageName: unknown
