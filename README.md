@@ -16,6 +16,12 @@ npm install npm-template
 yarn add npm-template
 ```
 
+### pnpm
+
+```sh
+pnpm add npm-template
+```
+
 ## Usage
 
 // TODO
