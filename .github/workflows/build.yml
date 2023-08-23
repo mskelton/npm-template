@@ -18,6 +18,10 @@ jobs:
   release:
     needs: [lint, test]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: mskelton/setup-pnpm@v1
       - name: Release
