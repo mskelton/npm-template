@@ -4,17 +4,17 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: mskelton/setup-pnpm@v2
+      - uses: mskelton/setup-bun@v1
       - name: Lint
-        run: pnpm lint
+        run: bun lint
       - name: Check formatting
-        run: pnpm lint
+        run: bun prettier --check .
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: mskelton/setup-pnpm@v2
+      - uses: mskelton/setup-bun@v1
       - name: Test
-        run: pnpm test
+        run: bun test
   release:
     needs: [lint, test]
     runs-on: ubuntu-latest
@@ -23,11 +23,11 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: mskelton/setup-pnpm@v2
+      - uses: mskelton/setup-bun@v1
       - name: Build
-        run: pnpm build
+        run: bun run build
       - name: Release
-        run: pnpm semantic-release
+        run: bun semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
