@@ -25,6 +25,7 @@
     "build": "tsup src/index.ts --format esm --dts --minify --clean --sourcemap",
     "lint": "eslint .",
     "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
     "test": "vitest"
   },
   "devDependencies": {

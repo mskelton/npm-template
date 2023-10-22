@@ -22,6 +22,12 @@ yarn add npm-template
 pnpm add npm-template
 ```
 
+### bun
+
+```sh
+bun add npm-template
+```
+
 ## Usage
 
 // TODO
